@@ -11,17 +11,7 @@ class exercicioTableSeeder extends Seeder
      */
     public function run()
     {
-        atividades::create([
-            'titulo' => 'Loucura',
-            'autor' => 'Jean Luí',
-            'texto' => 'beurifur girl'
-        ]);
 
-        atividades::create([
-            'titulo' => 'Meritocracia',
-            'autor' => 'BNErnardo',
-            'texto' => 'grande baixo homem'
-        ]);
 
     }
 }
