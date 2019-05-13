@@ -89,9 +89,12 @@ class AtividadeController extends Controller
      * @param  \App\Atividade  $atividade
      * @return \Illuminate\Http\Response
      */
-    public function edit(Atividade $atividade)
+    public function edit($id)
     {
-        //
+       $obj_Atividades = Atividade::find($id);
+       if(!isset($obj_Atividades))
+            return "erro";
+       return view('atividade.edit',["atividades" =>  $obj_Atividades]);
     }
 
     /**
@@ -101,10 +104,37 @@ class AtividadeController extends Controller
      * @param  \App\Atividade  $atividade
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Atividade $atividade)
+    public function update(Request $request, $id)
     {
-        //
-    }
+      //mensagens de erro
+      $messages = array(
+        'title.required' => 'É obrigatório um título para a atividade',
+        'description.required' => 'É obrigatória uma descrição para a atividade',
+        'scheduledto.required' => 'É obrigatório o cadastro da data/hora da atividade',
+        );
+        //vetor com as especificações de validações
+        $regras = array(
+        'title' => 'required|string|max:255',
+        'description' => 'required',
+        'scheduledto' => 'required|string',
+        );
+        //cria o objeto com as regras de validação
+        $validador = Validator::make($request->all(), $regras, $messages);
+        //executa as validações
+        if ($validador->fails()) {
+        return redirect("atividades/$id/edit")
+        ->withErrors($validador)
+        ->withInput($request->all);
+        }
+        //se passou pelas validações, processa e salva no banco...
+        $obj_Atividades = Atividade::findOrFail($id);
+        $obj_Atividades->title = $request['title'];
+        $obj_Atividades->description = $request['description'];
+        $obj_Atividades->scheduledto = $request['scheduledto'];
+        
+        $obj_Atividades->save();
+        return redirect('/atividades')->with('success', 'Atividade alterada com sucesso!!');
+}
 
     /**
      * Remove the specified resource from storage.
