@@ -1,11 +1,22 @@
 <h1>Lista de Mensagens</h1>
 <hr>
+
+@if (\Session::has('success'))
+    <div class="container">
+    <div class="alert alert-success">
+     {{\Session::get('success')}}
+
+    
+    </div>
+    </div>
+    @endif
+
+
+
+
 @foreach($mensagens as $mensagens)
-	<p><a href="/mensagens/{{$mensagens->id}}">{{$mensagens->titulo}}</a></p>
-	<p>{{$mensagens->texto}}</p>
-	<p>{{$mensagens->autor}}</p>
-	<p>{{$mensagens->created_at}}</p>
-	<p>{{$mensagens->updated_at}}</p>
+	<h2><a href="/mensagens/{{$mensagens->id}}">{{$mensagens->titulo}}</a></h2>
+	
 	<br>
 	
 @endforeach

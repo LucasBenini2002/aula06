@@ -8,3 +8,5 @@
     Autor:  <input type="text" name="autor"> <br>
     <input type="submit" value="salvar">
     </form>
+
+    <h2><a href="/mensagens/">VOLTAR A TELA INICIAL</a><h2>

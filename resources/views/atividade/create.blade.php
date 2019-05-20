@@ -10,6 +10,7 @@
     <input type="submit" value="salvar">
     </form>
 
+    <h2><a href="/atividades/">VOLTAR A TELA INICIAL</a><h2>
 
     @if ($errors->any())
     <div class="container">
@@ -24,12 +25,4 @@
     @endif
 
 
-    @if (\Session::has('success'))
-    <div class="container">
-    <div class="alert alert-success">
-     {{\Session::get('success')}}
-
     
-    </div>
-    </div>
-    @endif

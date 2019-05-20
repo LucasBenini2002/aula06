@@ -9,7 +9,7 @@
     Autor:  <input type="text" name="autor" value="{{$mensagens->texto}}"> <br>
 <input type="submit" value="Salvar">
 </form>
-
+<h2><a href="/mensagens/">VOLTAR A TELA INICIAL</a><h2>
 
 
     @if ($errors->any())

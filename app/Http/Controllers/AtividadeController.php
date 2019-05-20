@@ -142,9 +142,16 @@ class AtividadeController extends Controller
      * @param  \App\Atividade  $atividade
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Atividade $atividade)
+    public function destroy($id)
     {
-        //
+        $obj_Atividades = Atividade::findOrFail($id);
+        $obj_Atividades->delete($id);
+        return redirect('/atividades')->with('success','Atividade Excluida com Sucesso!!');
+    }
+    public function delete($id)
+    {
+        $obj_Atividades = Atividade::find($id);
+        return view('atividade.delete',["atividades" =>  $obj_Atividades]);
     }
 
 }

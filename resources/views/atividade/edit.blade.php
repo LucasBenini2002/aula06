@@ -9,7 +9,7 @@
     Agendado para:  <input type="datetime-local" name="scheduledto" value="{{$atividades->scheduledto}}" > <br>
     <input type="submit" value="salvar">
     </form>
-
+    <h2><a href="/atividades/">VOLTAR A TELA INICIAL</a><h2>
 
     @if ($errors->any())
     <div class="container">
