@@ -6,7 +6,7 @@
     {{method_field('PUT')}}
     Título:     <input type="text" name="titulo" value="{{$mensagens->titulo}}"> <br>
     Descrição:  <input type="text" name="texto" value="{{$mensagens->texto}}"> <br>
-    Autor:  <input type="datetime-local" name="scheduledto" value="{{Carbon\Carbon::parse($atividade->scheduledto)->format('Y-m-d\TH:i:s')}}"> <br>
+    Autor:  <input type="text" name="autor" value="{{$mensagens->texto}}"> <br>
 <input type="submit" value="Salvar">
 </form>
 
