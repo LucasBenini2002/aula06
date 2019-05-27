@@ -19,5 +19,6 @@
 	<br>
 @endforeach
 
+@if(Auth::check())
 <h2><a href="/atividades/create">CADASTRAR NOVA ATIVIDADE</a><h2>
-
+@endif

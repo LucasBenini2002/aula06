@@ -6,6 +6,7 @@
     <div class="alert alert-success">
      {{\Session::get('success')}}
 
+
     
     </div>
     </div>
@@ -21,5 +22,6 @@
 	
 @endforeach
  
-
+@if(Auth::check())
 <a href="/mensagens/create">CADASTRAR NOVA MENSAGEM</a>
+@endif
